@@ -50,10 +50,10 @@ public class print_keypad_combination {
             keypadcombination(n/10, singleDig[3] + outputsofar);
         }
     }
-    public static void  keypadcombination (int n){
+    public static void  printkeypad (int n){
         keypadcombination(n, "");
     }
     public static void main(String[] args) {
-        keypadcombination(234);
+        printkeypad(234);
     }
 }
