@@ -1,6 +1,6 @@
 package recursion2;
 
-public class return_keypad_problem {
+public class print_keypad_combination {
     public static String [] singleDigit (int num){
         if (num == 0){
             String [] ans ={""};
@@ -34,33 +34,26 @@ public class return_keypad_problem {
             return ans;
         }
     }
-    public static String [] returnsubsequences (int num){
+    public static void keypadcombination (int n, String outputsofar){
         // base case
-        if (num == 0){
-            String ans[] = {""};
-            return ans;
+        if (n == 0){
+            System.out.println(outputsofar);
+            return ;
         }
 
-        // smaller problem
-        String [] smallans = returnsubsequences(num/10);        
-        String [] last = singleDigit(num % 10); 
-        String [] ans = new String[last.length * smallans.length];
-        
-        // final part
-        int k = 0;
-        for (int i = 0; i < smallans.length; i++){
-            for (int j = 0; j < last.length; j++){
-                ans[k] = smallans[i] + last[j];
-                k++;
-            }
+        // which character to chosse
+        String [] singleDig = singleDigit(n%10);
+        keypadcombination(n/10, singleDig[0] + outputsofar);
+        keypadcombination(n/10, singleDig[1] + outputsofar);
+        keypadcombination(n/10, singleDig[2] + outputsofar);
+        if (singleDig.length == 4){
+            keypadcombination(n/10, singleDig[3] + outputsofar);
         }
-
-        return ans;
+    }
+    public static void  keypadcombination (int n){
+        keypadcombination(n, "");
     }
     public static void main(String[] args) {
-        String [] ans = returnsubsequences(234);
-        for (int i = 0; i < ans.length; i++){
-            System.out.println(ans[i]);
-        }
+        keypadcombination(234);
     }
 }
