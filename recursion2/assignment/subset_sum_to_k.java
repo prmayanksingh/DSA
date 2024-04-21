@@ -22,6 +22,7 @@ public class subset_sum_to_k {
                 ans[i][j] = notinclude[i][j];
             }
         }
+        
         // copy the included array to the ans array
         for (int i = 0; i < include.length; i++){
             ans[i + notinclude.length] = new int[include[i].length + 1];
