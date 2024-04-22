@@ -10,8 +10,7 @@ public class return_all_codes {
 
         // smaller problem
         String [] smallpro = getcode(str.substring(1));
-        int t = str.charAt(0) - '0';
-        char n = 'a' + 1 - 1;
+        char n = (char)('a' + (str.charAt(0) - '0') - 1);
 
         // adding the char n to the smallpro string array
         for (int i = 0; i < smallpro.length; i++){
@@ -19,13 +18,16 @@ public class return_all_codes {
         }
 
         // giving recursion to solve from 2nd index
-        String [] smallpro1 = getcode(str.substring(2));
-        int t1 = (str.charAt(0)+str.charAt(1)) - '0';
-        char n1 = 'a' + 11 - 1;
-
-        // adding char n1 to the ans string array
-        for (int i = 0; i < smallpro1.length; i++){
-            smallpro1[i] = n1 + smallpro1[i];
+        String [] smallpro1 = {};
+        if (str.length() >= 2){
+            char n1 = (char)((str.charAt(0) - '0') * 10 + str.charAt(1) - '0' + 'a' - 1);
+            if (n1 >= 'a' && n1 <= 'z'){
+                smallpro1 = getcode(str.substring(2));
+            }
+            // adding char n1 to the smallpro1 string array
+            for (int i = 0; i < smallpro1.length; i++){
+                smallpro1[i] = n1 + smallpro1[i];
+            }
         }
 
         // combining both smallpro ans smallpro1 String array
@@ -36,10 +38,12 @@ public class return_all_codes {
         for (int i = 0; i < smallpro1.length; i++){
             ans[i + smallpro.length] = smallpro1[i];
         }
-
         return ans;
     }
     public static void main(String[] args) {
-        System.out.println(getcode("1123"));
+        String [] ans = getcode("1123");
+        for (String s : ans){
+            System.out.println(s);
+        }
     }
 }
