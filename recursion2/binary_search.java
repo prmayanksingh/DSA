@@ -10,17 +10,14 @@ public class binary_search {
         if (arr[mid] == target) return mid;
         
         // checking if the target element is greater or smaller than mid
-        if (arr[mid] >= target){
-            return binarySearch(arr, target, si, mid - 1);
-        }else{
-            return binarySearch(arr, target, mid + 1, ei);
-        }
+        if (arr[mid] >= target) return binarySearch(arr, target, si, mid - 1);
+        else return binarySearch(arr, target, mid + 1, ei);
     }
     public static int search (int [] arr, int target){
         return binarySearch(arr, target, 0, arr.length-1);
     }
     public static void main(String[] args) {
         int [] arr = {1,2,3,4,5,6,7,8,9};
-        System.out.println(search(arr, 1));
+        System.out.println(search(arr, 3));
     }
 }
