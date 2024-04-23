@@ -21,6 +21,7 @@ public class print_subsequences {
             ans[i + smallans.length] = str.charAt(0) + smallans[i];
         }
         
+        // returning answer
         return ans;
     }
     public static void main(String[] args) {
