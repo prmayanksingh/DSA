@@ -1,43 +1,41 @@
 package recursion2.assignment;
 
 public class return_permutations {
+    public static int factorial (int n){
+        int fac = 1;
+        for (int i = 1; i <= n; i++){
+            fac = fac * i;
+        }
+        return fac;
+    }
     public static String [] permutationOfString (String str, int k){
         // base case
         if (str.length() == 0){
             String [] ans = {""};
             return ans;
         }
+        
+        // creating the final ans array
+        String [] ans = new String[factorial(str.length())];
 
-        // smaller ans
-        String temp = str.substring(0, k) + str.substring( k + 1, str.length());
-        String [] smallans = permutationOfString(temp , k);
-
-        // adding the first char to the smallans
-        for (int i = 0; i < smallans.length; i++){
-            smallans[i] = str.charAt(k) + smallans[i];
+        // smaller ans loop
+        for(int i = 0; i < str.length(); i++){
+            String temp = (str.substring(0, i)) + str.substring(i + 1, str.length());
+            String [] smallans = permutationOfString(temp, k);
+            for (int j = 0; j < smallans.length; j++){
+                ans[j] = str.charAt(i) + smallans[j];
+                k++;
+            }
         }
-
-
-        // changing the first character of the string
-        String [] smallans2 = {};
-        if (str.length() >= 2){
-            smallans2 = permutationOfString(str, k + 1);
-        }
-
-        // making the ans array
-        String ans [] = new String[smallans.length + smallans2.length];
-        for (int i = 0; i < smallans.length; i++){
-            ans[i] = smallans[i];
-        }
-        for (int i = 0; i < smallans2.length; i++){
-            ans[i + smallans.length] = smallans2[i];
-        }
-
         return ans;
+    }
+    
+    public static String [] permutationOfString (String str){
+        return permutationOfString(str, 0);
     }
     public static void main(String[] args) {
         String str = "abc";
-        String [] ans = permutationOfString(str, 0);
+        String [] ans = permutationOfString(str);
         for (String i : ans){
             System.out.println(i);
         }
