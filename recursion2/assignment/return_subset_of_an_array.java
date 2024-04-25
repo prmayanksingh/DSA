@@ -30,7 +30,6 @@ public class return_subset_of_an_array {
                 ans [i + smallpro.length][j] = smallpro[i][j-1];                
             }
         }
-
         return ans;
     }
 

@@ -8,6 +8,7 @@ public class return_permutations {
         }
         return fac;
     }
+    
     public static String [] permutationOfString (String str, int k){
         // base case
         if (str.length() == 0){
@@ -23,13 +24,13 @@ public class return_permutations {
             String temp = (str.substring(0, i)) + str.substring(i + 1, str.length());
             String [] smallans = permutationOfString(temp, k);
             for (int j = 0; j < smallans.length; j++){
-                ans[j] = str.charAt(i) + smallans[j];
+                ans[k] = str.charAt(i) + smallans[j];
                 k++;
             }
         }
         return ans;
     }
-    
+
     public static String [] permutationOfString (String str){
         return permutationOfString(str, 0);
     }
