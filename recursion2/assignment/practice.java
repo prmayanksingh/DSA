@@ -1,4 +1,4 @@
-package recursion2.assignment;
+// package recursion2.assignment;
 
 public class practice {
     public static int countword (String str,int count){

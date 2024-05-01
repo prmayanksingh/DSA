@@ -1,4 +1,4 @@
-package recursion2.assignment;
+// package recursion2.assignment;
 
 public class return_permutations {
     public static int factorial (int n){
@@ -22,7 +22,7 @@ public class return_permutations {
         // smaller ans loop
         for(int i = 0; i < str.length(); i++){
             String temp = (str.substring(0, i)) + str.substring(i + 1, str.length());
-            String [] smallans = permutationOfString(temp, k);
+            String [] smallans = permutationOfString(temp, 0);
             for (int j = 0; j < smallans.length; j++){
                 ans[k] = str.charAt(i) + smallans[j];
                 k++;
