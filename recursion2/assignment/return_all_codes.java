@@ -1,4 +1,4 @@
-package recursion2.assignment;
+// package recursion2.assignment;
 
 public class return_all_codes {
     public static String [] getcode (String str){

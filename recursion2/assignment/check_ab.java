@@ -1,4 +1,4 @@
-package recursion2.assignment;
+// package recursion2.assignment;
 
 public class check_ab {
     public static boolean checkAB (String str, int si){

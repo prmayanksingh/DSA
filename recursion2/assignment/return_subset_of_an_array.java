@@ -1,4 +1,4 @@
-package recursion2.assignment;
+// package recursion2.assignment;
 
 public class return_subset_of_an_array {
     public static int [][] subsets(int input[],int si){

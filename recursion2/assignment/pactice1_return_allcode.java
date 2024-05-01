@@ -1,4 +1,4 @@
-package recursion2.assignment;
+// package recursion2.assignment;
 
 public class pactice1_return_allcode {
     public static String [] getCode (String str){
@@ -42,5 +42,7 @@ public class pactice1_return_allcode {
         for (String s : ans){
             System.out.println(s);
         }
+        String str = "abc";
+        String s = str.substring(0, 2);
     }
 }
