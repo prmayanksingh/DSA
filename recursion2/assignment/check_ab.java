@@ -37,5 +37,6 @@ public class check_ab {
     public static void main(String[] args) {
         String str = "abbaaaa";
         System.out.println(checkAB(str));        
+        int [] arr = {1,-2,3,3};
     }
 }
